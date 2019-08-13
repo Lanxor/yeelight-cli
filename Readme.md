@@ -1,4 +1,4 @@
-# Yeelight Script
+# Yeelight Command Line Interface
 
 # Requirements
 
