@@ -75,19 +75,23 @@ def main():
   parser = argparse.ArgumentParser(description="Yeelight Command Line Interface",
     epilog="See documentation : https://yeelight.readthedocs.io/en/latest/")
   subparsers = parser.add_subparsers(dest='action')
-    
+  
+  # Parser turn_on command
   parser_turnon = subparsers.add_parser('turn_on', description="Turn the bulb on.")
   parser_turnon.add_argument('address',
     help="IP address of bulb.")
-
+  
+  # Parser turn_off command
   parser_turnoff = subparsers.add_parser('turn_off', description="Turn the bulb off.")
   parser_turnoff.add_argument('address',
     help="IP address of bulb.")
-
+  
+  # Parser toogle command
   parser_toogle = subparsers.add_parser('toogle', description="Toggle the bulb on or off.")
   parser_toogle.add_argument('address',
       help="IP address of bulb.")
 
+  # Parser set_rgb command
   parser_setrgb = subparsers.add_parser('set_rgb', description="Set the bulb's RGB value.")
   parser_setrgb.add_argument('address',
     help="IP address of bulb.")
@@ -98,6 +102,7 @@ def main():
   parser_setrgb.add_argument('blue', type=int,
     help="The blue value to set (0-255).")
 
+  # Parser set_hsv command
   parser_sethsv = subparsers.add_parser('set_hsv', description="Set the bulb's HSV value.")
   parser_sethsv.add_argument('address',
     help="IP address of bulb.")
@@ -109,6 +114,7 @@ def main():
     help="The value to set (0-100). If omitted, the bulb's brightness will remain the same as before the change.")
   parser_sethsv.add_argument('-t', '--light-type', type=int)
   
+  # Parser set_color_temp command
   parser_setcolortemp = subparsers.add_parser('set_color_temp', description="Set the bulb's color temperature.")
   parser_setcolortemp.add_argument('address',
     help="IP address of bulb.")
@@ -116,12 +122,14 @@ def main():
     help="""The degrees to set the color temperature to (min/max are specified by the
             model's capabilities, or 1700-6500).""")
   
+  # Parser set_brightness command
   parser_setbrightness = subparsers.add_parser('set_brightness', description="Set the bulb's brightness.")
   parser_setbrightness.add_argument('address',
     help="IP address of bulb.")
   parser_setbrightness.add_argument('value', type=int,
     help="The brightness value to set (1-100).")
 
+  # Parser set_adjust command
   parser_setadjust = subparsers.add_parser('set_adjust', description="Adjust a parameter.")
   parser_setadjust.add_argument('address',
     help="IP address of bulb.")
