@@ -86,9 +86,9 @@ def main():
   parser_turnoff.add_argument('address',
     help="IP address of bulb.")
   
-  # Parser toogle command
-  parser_toogle = subparsers.add_parser('toogle', description="Toggle the bulb on or off.")
-  parser_toogle.add_argument('address',
+  # Parser toggle command
+  parser_toggle = subparsers.add_parser('toggle', description="Toggle the bulb on or off.")
+  parser_toggle.add_argument('address',
       help="IP address of bulb.")
 
   # Parser set_rgb command
@@ -145,8 +145,8 @@ def main():
     do_turn_on(args.address)
   elif args.action == 'turn_off':
     do_turn_off(args.address)
-  elif args.action == 'toogle':
-    do_toogle(args.address)
+  elif args.action == 'toggle':
+    do_toggle(args.address)
   elif args.action == 'set_rgb':
     do_set_rgb(args.address, args.red, args.green, args.blue)
   elif args.action == 'set_hsv':
